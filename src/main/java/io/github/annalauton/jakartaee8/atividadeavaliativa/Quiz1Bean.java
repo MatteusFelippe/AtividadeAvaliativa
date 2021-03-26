@@ -40,6 +40,7 @@ public class Quiz1Bean implements Serializable {
             return resourceBundle.getString("response.success");
         } else {
             // Recupera e devolve resposta de falha
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             return resourceBundle.getString("response.fail");
         }
     }
