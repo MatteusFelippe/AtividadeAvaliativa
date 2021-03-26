@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./WEB-INF/templates/default.xhtml">
+
+            <ui:define name="content">
+                <div class="divisao" style="margin-top:30px;">
+                    <h2>
+                        #{quiz2Bean.minimum} ~ 
+                        #{quiz2Bean.maximum}</h2>
+
+                    <h:form id = "Formulario">
+                        <h:outputLabel 
+                            for="palpite"
+                            value="#{i18n.whatisyourname}" /><br/><br/>
+                        <h:inputText style = "padding: 5px; "
+                                     id="palpite"
+                                     value="#{quiz2Bean.guess}" >
+                            <f:validateLongRange 
+                                minimum="#{quiz2Bean.minimum}"
+                                maximum="#{quiz2Bean.maximum}" />
+                        </h:inputText>&nbsp;
+                        <h:commandButton style = "padding: 5px;"
+                                         action="response2"
+                                         value="#{i18n.send}" />
+                        <p>
+                            <h:message 
+                                showSummary="true" 
+                                showDetail="false"
+                                style="color: #d20005; font-family: 'New Century Schoolbook', serif; font-style: italic;"
+                                for="palpite"/>
+                        </p>
+                    </h:form>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

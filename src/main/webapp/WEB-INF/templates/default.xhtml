@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+    lang="${i18n.lang}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library="default" name="css/default.css"/>
+        <h:outputStylesheet library="default" name="css/cssLayout.css"/>
+        <title>#{empty pageTitle ? i18n.title : pageTitle}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </h:head>
+
+    <h:body>
+        <ui:debug 
+            hotkey="k"
+            rendered="true" />        
+        <header>
+            <nav>
+                <ui:insert name="top">
+                    <label class="logo"><ui:insert name="titulo">#{i18n.title}</ui:insert></label>
+                    <ul>
+                        <li><a><h:link
+                                    rendered="#{view.viewId.replace('/', '').replace('.xhtml','') ne 'welcome'}"
+                                    outcome="welcome"
+                                    value="#{i18n.gowelcome}" /></a></li>
+                        <li><a><h:link 
+                                    rendered="#{view.viewId.replace('/', '').replace('.xhtml','') ne 'about'}"
+                                    outcome="about" 
+                                    value="#{i18n.goabout}" /></a></li>
+                        <li><h:form>
+                                <h:commandLink
+                                    rendered="#{not empty userBean.name}"
+                                    action="${userBean.logout}"
+                                    value="#{i18n.logout}" />
+                            </h:form></li>
+                    </ul>
+                </ui:insert>
+            </nav>
+        </header>
+
+        <main class="center_content">
+            <ui:insert name="content"></ui:insert>
+        </main>
+
+        <footer>
+            <div class="footerGeral">
+                <p>Copyright © 2021 | #{i18n.title}</p>
+            </div>
+        </footer>
+
+    </h:body>
+
+</html>
