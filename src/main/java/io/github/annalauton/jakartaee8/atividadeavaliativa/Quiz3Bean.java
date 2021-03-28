@@ -40,11 +40,9 @@ public class Quiz3Bean implements Serializable {
         ResourceBundle resourceBundle = application.getResourceBundle(context, "i18n");
 
         if (guess.equals("true")) {
-            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             // Recupera e devolve resposta de sucesso
             return resourceBundle.getString("response.success");
         } else {
-            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             // Recupera e devolve resposta de falha
             return resourceBundle.getString("response.fail");
         }

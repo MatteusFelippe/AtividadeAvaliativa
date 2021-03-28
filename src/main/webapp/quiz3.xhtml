@@ -11,6 +11,12 @@
 
             <ui:define name="content">
                 <div class="divisao" style="margin-top:30px;">
+                    <h1><h:outputFormat
+                            value="#{i18n.responda}">
+                            <f:param 
+                                value="#{empty userBean.name ? i18n.visitor : userBean.name}" />
+                        </h:outputFormat>
+                    </h1><br/>
                     <h2>#{i18n.terceirapergunta}</h2><br/>
 
                     <h:form id = "Formulario">
