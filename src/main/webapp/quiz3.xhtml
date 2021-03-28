@@ -1,16 +1,33 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./WEB-INF/templates/default.xhtml">
 
-            
-
             <ui:define name="content">
-                content
+                <div class="divisao" style="margin-top:30px;">
+                    <h2>#{i18n.terceirapergunta}</h2><br/>
+
+                    <h:form id = "Formulario">
+                        <h:selectOneMenu style = "padding: 5px;" value = "#{quiz3Bean.guess}"> 
+                            <f:selectItem itemValue = "false" itemLabel = "&lt;b&gt;" /> 
+                            <f:selectItem itemValue = "false" itemLabel = "&lt;a&gt;" /> 
+                            <f:selectItem itemValue = "false" itemLabel = "&lt;audio&gt;" /> 
+                            <f:selectItem itemValue = "true" itemLabel = "&lt;div&gt;" /> 
+                            <f:selectItem itemValue = "false" itemLabel = "&lt;button&gt;" /> 
+                        </h:selectOneMenu> &nbsp;
+                        <h:commandButton style = "padding: 5px;"
+                                         action="response3"
+                                         value="#{i18n.send}" />
+
+                    </h:form>
+
+                </div>
             </ui:define>
 
         </ui:composition>
