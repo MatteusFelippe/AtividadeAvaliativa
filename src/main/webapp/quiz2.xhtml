@@ -11,14 +11,11 @@
 
             <ui:define name="content">
                 <div class="divisao" style="margin-top:30px;">
-                    <h2>
-                        #{quiz2Bean.minimum} ~ 
-                        #{quiz2Bean.maximum}</h2>
+                    <h2>#{i18n.segundapergunta}</h2>
+                    <h3>#{i18n.obs}&nbsp; #{quiz2Bean.minimum} ~ #{quiz2Bean.maximum}</h3>
 
                     <h:form id = "Formulario">
-                        <h:outputLabel 
-                            for="palpite"
-                            value="#{i18n.whatisyourname}" /><br/><br/>
+                        <br/>
                         <h:inputText style = "padding: 5px; "
                                      id="palpite"
                                      value="#{quiz2Bean.guess}" >
@@ -45,3 +42,5 @@
 
     </body>
 </html>
+
+

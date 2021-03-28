@@ -11,7 +11,16 @@
         <div class="divisao" style="margin-top:30px;">
 
             <p><h:outputLabel 
-                value="#{quiz2Bean.response}" /></p>                
+                    value="#{quiz2Bean.response}" /></p>     
+
+            <p>#{i18n.jogarnovamente}</p>
+
+            <h:link
+                outcome="quiz2"
+                value="#{i18n.jogaresse}" /><br/>
+            <h:link
+                outcome="main"
+                value="#{i18n.jogaroutro}" />
 
         </div>    
     </ui:define>

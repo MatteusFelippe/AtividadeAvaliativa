@@ -21,11 +21,11 @@ public class Quiz2Bean implements Serializable {
     private final Integer maximum;
     private Integer guess;
     private boolean[] disabled;
-    
-     public Quiz2Bean() {
-        resposta = 5;
-        minimum = 1;
-        maximum = 10;
+
+    public Quiz2Bean() {
+        resposta = 10;
+        minimum = 0;
+        maximum = 10000;
         // Default state for all guess buttons: false
         disabled = new boolean[maximum - minimum + 1];
     }
@@ -43,7 +43,7 @@ public class Quiz2Bean implements Serializable {
         disabled[guess - minimum] = true;
         this.guess = guess;
     }
-    
+
     public Integer getMinimum() {
         return minimum;
     }
@@ -51,7 +51,7 @@ public class Quiz2Bean implements Serializable {
     public Integer getMaximum() {
         return maximum;
     }
-    
+
     public boolean[] getDisabled() {
         return disabled;
     }
@@ -59,9 +59,8 @@ public class Quiz2Bean implements Serializable {
     public void setDisabled(boolean[] disabled) {
         this.disabled = disabled;
     }
-    
-    //</editor-fold>
 
+    //</editor-fold>
     public String getResponse() {
         // Recupera contexto da aplicação
         FacesContext context = FacesContext.getCurrentInstance();
@@ -75,10 +74,10 @@ public class Quiz2Bean implements Serializable {
             // Recupera e devolve resposta de sucesso
             return resourceBundle.getString("response.success");
         } else {
+            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             // Recupera e devolve resposta de falha
             return resourceBundle.getString("response.fail");
         }
     }
-    
-    
+
 }
