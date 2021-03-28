@@ -35,12 +35,10 @@ public class Quiz1Bean implements Serializable {
         ResourceBundle resourceBundle = application.getResourceBundle(context, "i18n");
 
         if (resourceBundle.getString("resposta1").equals(guess.toLowerCase())) {
-            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             // Recupera e devolve resposta de sucesso
             return resourceBundle.getString("response.success");
         } else {
             // Recupera e devolve resposta de falha
-            FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
             return resourceBundle.getString("response.fail");
         }
     }

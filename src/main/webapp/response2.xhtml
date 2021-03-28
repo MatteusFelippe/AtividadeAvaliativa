@@ -13,7 +13,11 @@
             <p><h:outputLabel 
                     value="#{quiz2Bean.response}" /></p>     
 
-            <p>#{i18n.jogarnovamente}</p>
+            <p><h:outputFormat
+                    value="#{i18n.jogarnovamente}">
+                    <f:param 
+                        value="#{empty userBean.name ? i18n.visitor : userBean.name}" />
+                </h:outputFormat></p>
 
             <h:link
                 outcome="quiz2"
